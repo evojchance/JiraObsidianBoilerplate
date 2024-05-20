@@ -103,12 +103,12 @@ columns: KEY, SUMMARY, -TYPE, -PRIORITY, -$10022, STATUS
 
 <%* if (!isDemo) { %>
 ```
-Merged to _Sprint.0323:
+Merged to _Sprint.0524:
 [<%* tR += issueKey %>](<%* tR += `https://evosus.atlassian.net/browse/WB-${id}` %>) - <%* tR += issue.fields.summary %>
 ```
 <%* } else { %>
 ```
-Merged to _Sprint.0323:
+Merged to _Sprint.0524:
 *[<%* tR += issueKey %>](<%* tR += `https://evosus.atlassian.net/browse/WB-${id}` %>) - <%* tR += issue.fields.summary %>*
 ```
 <%* } %>

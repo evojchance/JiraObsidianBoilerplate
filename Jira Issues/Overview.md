@@ -11,7 +11,7 @@ Everything here should work outside of the box, except for [[Overview#Open Revie
 ### Cards ToDo
 ```jira-search
 type: TABLE
-query: assignee = currentUser() AND status != "Done" AND status != "No Action" AND sprint in openSprints()
+query: assignee = currentUser() AND resolution = EMPTY AND sprint in openSprints()
 columns: KEY, SUMMARY, -TYPE, -PRIORITY, -$10022, STATUS,
 ```
 
@@ -32,14 +32,21 @@ columns: KEY, SUMMARY, -TYPE, -PRIORITY, ASSIGNEE,
 ### My Cards
 ```jira-search
 type: TABLE
-query: creator = currentUser() AND sprint in openSprints() AND status != "Done" AND status != "No Action"
+query: creator = currentUser() AND sprint in openSprints() AND resolution = EMPTY
 columns: KEY, SUMMARY, -TYPE, -PRIORITY, STATUS
+```
+
+### Watching
+```jira-search
+type: TABLE
+query: watcher = currentUser() AND resolution = Unresolved ORDER BY Updated
+columns: KEY, SUMMARY, -TYPE, -PRIORITY, UPDATED, STATUS,
 ```
 
 ### Done!
 ```jira-search
 type: TABLE
-query: assignee = currentUser() AND (status = "Done" OR status = "No Action") AND sprint in openSprints()
+query: assignee = currentUser() AND resolution != EMPTY AND sprint in openSprints()
 columns: KEY, SUMMARY, -TYPE, -PRIORITY, -$10022, STATUS,
 ```
 
